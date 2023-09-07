@@ -19,7 +19,7 @@ body {
 
 .container {
     position: absolute;
-    top: 30%;
+    top: 27%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,12 +69,12 @@ i {
 #banner {
     position: relative;
     display: none;
-    bottom: 204px;
-    background-color: lightgray;
+    bottom: 210px;
+    background-color: rgb(223, 221, 221);
     border: 2px solid black;
     border-radius: 15px;
     box-shadow: 4px 4px 4px 1px rgb(0, 0, 0, .6);
     padding: 40px;
-    font-size: 14pt;
+    font-size: 20pt;
     font-weight: bold;
 }
