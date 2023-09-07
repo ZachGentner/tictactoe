@@ -1,10 +1,23 @@
 const grid = document.querySelector("main");
 
+//Global game state variables stored in an object literal.
 const state = {
+    gameOver: false,
+    tie: false,
     playerTurn: 1,
     oToken: 'fa-regular fa-circle fa-xl', //Player 1 Token
     xToken: 'fa-solid fa-xmark fa-2xl', //Player 2 Token
-    board: []
+    board: [],
+    winConditions: [
+        [0, 1, 2], // Top row
+        [3, 4, 5], // Middle row
+        [6, 7, 8], // Bottom row
+        [0, 3, 6], // Left column
+        [1, 4, 7], // Middle column
+        [2, 5, 8], // Right column
+        [0, 4, 8], // Diagonal from top-left to bottom-right
+        [2, 4, 6]  // Diagonal from top-right to bottom-left
+      ]
 }
 
 //Checks for player click on cell. Fills with appropriate tile. Evaluates win condition.
@@ -14,34 +27,24 @@ grid.addEventListener("mousedown", (e) => {
     }
 });
 
-// grid.addEventListener("mouseover", (e) => {
-//     if(e.target.querySelector("i") === null && e.target.classList.contains("cell")) {
-//         displayToken(e.target);
-//     }
-// });
-
-// grid.addEventListener("mouseout", (e) => {
-//     if(e.target.classList.contains("cell")) {
-//         hideToken(e.target);
-//     }
-// });
-
 //Permanently adds token to a cell and advances player turn.
 function placeToken(cell) {
-    const symbol = document.createElement("i");
+    if (state.gameOver === false) {
+        const symbol = document.createElement("i");
 
-    if (state.playerTurn === 1) {
-        symbol.setAttribute("class", state.oToken);
-        state.board[cell.id] = 'o'
-        state.playerTurn = 2;
-    } else {
-        symbol.setAttribute("class", state.xToken);
-        state.board[cell.id] = 'x'
-        state.playerTurn = 1;
+        if (state.playerTurn === 1) {
+            symbol.setAttribute("class", state.oToken);
+            state.board[cell.id] = 'o'
+            state.playerTurn = 2;
+        } else {
+            symbol.setAttribute("class", state.xToken);
+            state.board[cell.id] = 'x'
+            state.playerTurn = 1;
+        }
+
+        evaluateBoard();
+        cell.appendChild(symbol);
     }
-
-    evaluateBoard(state.board);
-    cell.appendChild(symbol);
 }
 
 //Displays token while hovering over a cell.
@@ -72,52 +75,75 @@ function resetBoard() {
         }
     }
 
-    state.grid = [];
+    document.getElementById("reset").remove(); //Remove the reset button.
+    document.getElementById("banner").remove(); //Remove the reset button.
+
+    //Reset the game state.
+    state.board = [];
+    state.tie = false;
+    state.gameOver = false;
 }
 
 //Analyzes the game board to determine if win coniditons have been met.
 function evaluateBoard() {
-
-    //Do not evaluate unless state.board.length >= 5, as that is the minimum amount of tokens that needs to be placed before a winner can be determined.
-    // if(state.board.length >= 5) {
-
-    // }
-
-    const winConditions = [
-    //ROWS
-        [0,1,2],
-    //     [3,4,5],
-    //     [6,7,8],
-    // //COLUMNS
-    //     [0,3,6],
-    //     [1,4,7],
-    //     [2,5,8],
-    // //DIAGONAL
-    //     [0,4,8],
-    //     [2,4,6]
-    ]
-
-//
-//If set has been evaluated to false, remove it from winConditions.
-
-    for (let set in winConditions) {
-        let result = false;
-        // console.log(winConditions[set]);
-
-        for (let cell in winConditions[set]) {
-            console.log(winConditions[set][cell]);
-            if (state.board[winConditions[set][cell]] != null) {
-                // console.log("Cell:" + winConditions[set][cell]);
-                // console.log(state.board[winConditions[set][cell]]);
+    if(state.board.reduce((acc, value) => acc += value).length >= 5) { //Do not evaluate unless at least 5 tokens have been placed, as that is the minimum needed for a win.
+        for (const condition of state.winConditions) {
+          let match = true;
+          
+          for (const index of condition) {
+            const value = state.board[index];
+            
+            if (value === undefined) { // If any value is undefined, stop evaluating the condition
+              match = false;
+              break;
             }
+            
+            if (value !== state.board[condition[0]]) { // If any value doesn't match the first value in the condition, stop evaluating the condition
+              match = false;
+              break;
+            }
+          }
+          
+          if (match) { // If all values in this condition matched.
+            state.gameOver = true;
+            displayResult();
+            return;
+          }
         }
+
+        if(state.board.reduce((acc, value) => acc += value).length === 9) { //If the game board is full and no winConditions have been met, produce a tie.
+            state.tie = true;
+            displayResult();
+        }
+
+        return false; // None of the win conditions were met.
     }
 }
 
-function displayWinner() {
-    if (state.playerTurn === 1){
-        console.log("O wins!");
+//Create a message displaying the result of the game and a reset button to play again.
+function displayResult() {
+    let banner = document.createElement("h1");
+    banner.setAttribute("id", "banner");
+
+    if(state.tie) {
+        banner.innerText = "Tie!"
+        console.log("Tie!");
     } else {
-        console.log("X wins!");
+        if (state.playerTurn === 2){
+            banner.innerText = "O wins!"
+            console.log("O Wins!");
+        } else {
+            banner.innerText = "X wins!"
+            console.log("X Wins!");
+        }
     }
+
+    document.querySelector("body").appendChild(banner);
+
+    //Render the reset button.
+    let btn = document.createElement("button");
+    btn.innerText = "Play Again?";
+    btn.setAttribute("onclick", "resetBoard()");
+    btn.setAttribute("id", "reset");
+    document.querySelector("body").appendChild(btn);
 }
