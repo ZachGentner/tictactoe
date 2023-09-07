@@ -12,11 +12,19 @@ html {
 
 body {
     display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    position: absolute;
+    top: 30%;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
+    text-align: center;
 }
 
 main {
@@ -46,8 +54,9 @@ i {
 }
 
 #reset {
-    position: absolute;
-    bottom: 20%;
+    position: relative;
+    display: none;
+    bottom: 100px;
     padding: 20px;
     margin: 20px;
     border-radius: 15px;
@@ -58,11 +67,14 @@ i {
 }
 
 #banner {
-    position: absolute;
-    bottom: 41.5%;
-    background-color: white;
+    position: relative;
+    display: none;
+    bottom: 204px;
+    background-color: lightgray;
     border: 2px solid black;
     border-radius: 15px;
     box-shadow: 4px 4px 4px 1px rgb(0, 0, 0, .6);
     padding: 40px;
+    font-size: 14pt;
+    font-weight: bold;
 }

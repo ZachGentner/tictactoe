@@ -75,8 +75,8 @@ function resetBoard() {
         }
     }
 
-    document.getElementById("reset").remove(); //Remove the reset button.
-    document.getElementById("banner").remove(); //Remove the reset button.
+    document.getElementById("reset").style.display = "none"; //Remove the reset button.
+    document.getElementById("banner").style.display = "none"; //Remove the reset button.
 
     //Reset the game state.
     state.board = [];
@@ -122,28 +122,21 @@ function evaluateBoard() {
 
 //Create a message displaying the result of the game and a reset button to play again.
 function displayResult() {
-    let banner = document.createElement("h1");
-    banner.setAttribute("id", "banner");
 
     if(state.tie) {
-        banner.innerText = "Tie!"
+        document.getElementById("banner").innerText = "Tie!"
         console.log("Tie!");
     } else {
         if (state.playerTurn === 2){
-            banner.innerText = "O wins!"
+            document.getElementById("banner").innerText = "O Wins!"
             console.log("O Wins!");
         } else {
-            banner.innerText = "X wins!"
+            document.getElementById("banner").innerText = "X Wins!"
             console.log("X Wins!");
         }
     }
 
-    document.querySelector("body").appendChild(banner);
-
-    //Render the reset button.
-    let btn = document.createElement("button");
-    btn.innerText = "Play Again?";
-    btn.setAttribute("onclick", "resetBoard()");
-    btn.setAttribute("id", "reset");
-    document.querySelector("body").appendChild(btn);
+    //Render the reset button and result banner.
+    document.getElementById("banner").style.display = "block";
+    document.getElementById("reset").style.display = "block";
 }
