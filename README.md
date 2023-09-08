@@ -200,9 +200,9 @@ Project Link: [https://github.com/zachgentner/tictactoe](https://github.com/zach
 [product-screenshot]: /tictactoe.png
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
-[HTML.com]: https://img.shields.io/badge/html-E34F26?style=for-the-badge&logo=html5&logoColor=white
+[HTML.com]: https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white
 [HTML-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
-[CSS.com]: https://img.shields.io/badge/css-3595cf?style=for-the-badge&logo=css3&logoColor=white
+[CSS.com]: https://img.shields.io/badge/css3-3595cf?style=for-the-badge&logo=css3&logoColor=white
 [CSS-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
 [JavaScript.com]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white
 [JavaScript-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
