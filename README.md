@@ -29,10 +29,10 @@
 
 <!-- PROJECT LOGO -->
 <br />
-<div align="center">
+<!-- <div align="center">
   <a href="https://github.com/zachgentner/tictactoe">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  </a> -->
 
 <h3 align="center">Tic-Tac-Toe</h3>
 
@@ -42,7 +42,7 @@
     <a href="https://github.com/zachgentner/tictactoe"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/zachgentner/tictactoe">View Demo</a>
+    <a href="https://zachgentner-javascript-tictactoe.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/zachgentner/tictactoe/issues">Report Bug</a>
     ·
@@ -95,7 +95,7 @@ This project was part of The Odin Project's Full Stack JavaScript course. Throug
 
 * [![HTML][HTML5]][HTML-url]
 * [![CSS][CSS3]][CSS-url]
-* [![JavaScript][Next.js]][JavaScript-url]
+* [![JavaScript][JavaScript]][JavaScript-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -200,9 +200,9 @@ Project Link: [https://github.com/zachgentner/tictactoe](https://github.com/zach
 [product-screenshot]: /tictactoe.png
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
-[HTML.com]: https://img.shields.io/badge/html-dd4b25?style=for-the-badge&logo=html&logoColor=white
+[HTML.com]: https://img.shields.io/badge/html-E34F26?style=for-the-badge&logo=html5&logoColor=white
 [HTML-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
-[CSS.com]: https://img.shields.io/badge/css-3595cf?style=for-the-badge&logo=css&logoColor=white
+[CSS.com]: https://img.shields.io/badge/css-3595cf?style=for-the-badge&logo=css3&logoColor=white
 [CSS-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
-[JavaScript.com]: https://img.shields.io/badge/JavaScript-efd81d?style=for-the-badge&logo=javascript&logoColor=white
+[JavaScript.com]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white
 [JavaScript-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
