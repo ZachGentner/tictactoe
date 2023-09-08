@@ -93,9 +93,9 @@ This project was part of The Odin Project's Full Stack JavaScript course. Throug
 
 ### Built With
 
-* [![HTML][HTML5]][HTML-url]
-* [![CSS][CSS3]][CSS-url]
-* [![JavaScript][JavaScript]][JavaScript-url]
+* [![HTML5][HTML.com]][HTML-url]
+* [![CSS3][CSS.com]][CSS-url]
+* [![JavaScript][JavaScript.com]][JavaScript-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
